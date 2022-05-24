@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 
 class UserDataManager {
 
-    private suspend fun getTotalUserCount() : Int {
+    suspend fun getTotalUserCount() : Int {
 
         var count = 0
 

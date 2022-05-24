@@ -30,7 +30,11 @@ class MainActivity : AppCompatActivity() {
         }
         btnDownloadUserData.setOnClickListener {
 
-            CoroutineScope(Dispatchers.IO).launch { downloadUserData() }
+            CoroutineScope(Dispatchers.Main).launch {
+                //downloadUserData()
+                val tvUserMessage = findViewById<TextView>(R.id.tvUserMessage)
+                tvUserMessage.text = UserDataManager().getTotalUserCount().toString()
+            }
         }
     }
 
