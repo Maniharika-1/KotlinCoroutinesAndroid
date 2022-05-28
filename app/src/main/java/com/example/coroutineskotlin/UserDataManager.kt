@@ -17,6 +17,11 @@ class UserDataManager {
              count = 50
         }
 
-        return count
+        val deferred = CoroutineScope(IO).async {
+            delay(3000)
+            return@async 70
+        }
+
+        return count + deferred.await()
     }
 }
