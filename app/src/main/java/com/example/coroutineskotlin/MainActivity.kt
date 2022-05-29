@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         mainActivityViewModel.getUserData()
+        mainActivityViewModel.usersList.observe(this, Observer {myUsers ->
+            myUsers.forEach {
+                Log.d("MyTag", "onCreate: name is ${it.name} ")
+            }
+
+        })
 
     }
 }
