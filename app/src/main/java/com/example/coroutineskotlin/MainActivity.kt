@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 //downloadUserData()
                 val tvUserMessage = findViewById<TextView>(R.id.tvUserMessage)
-                tvUserMessage.text = UserDataManager().getTotalUserCount().toString()
+                tvUserMessage.text = UserDataManager2().getTotalUserCount().toString()
             }
         }
     }
